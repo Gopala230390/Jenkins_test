@@ -1,0 +1,27 @@
+pipeline {
+    
+    tools{
+        maven 'M2_HOME'
+        
+    }
+    agent any
+
+    stages {
+        stage('git commit') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Gopala230390/Jenkins_test.git'
+            }
+        }
+        
+        
+        
+         stage('build') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        
+        
+        
+    }
+}
